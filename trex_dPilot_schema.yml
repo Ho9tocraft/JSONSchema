@@ -2,7 +2,165 @@ $schema: "https://json-schema.org/draft/2020-12/schema#"
 title: "TRExPilots"
 type: "object"
 required: # 必須のプロパティを定義
-  - "units"
+  - "pilots"
 properties:
-  units:
+  pilots:
     type: "array"
+    items:
+      type: "object"
+      required:
+        - "fullname"
+        - "nickname"
+        - "readname"
+        - "codename"
+        - "species"
+      properties:
+        fullname:
+          type: "string"
+        nickname:
+          type: "string"
+        readname:
+          type: "string"
+        codename:
+          type: "string"
+        species:
+          type: "object"
+          required:
+            - "broad"
+            - "middle"
+            - "tribe"
+          properties:
+            broad: #全体種族
+              type:
+                enum:
+                  - "Human"
+                  - "Elves"
+                  - "Dwarf"
+                  - "Tabbit"
+                  - "Runefolk"
+                  - "Nightmare"
+                  - "Lycan"
+                  - "Lilidracken"
+                  - "Grassrunner"
+                  - "Meria"
+                  - "Tience"
+                  - "Leprechaun"
+                  - "Arve"
+                  - "Shadow"
+                  - "Sunbreaker"
+                  - "LittleHighHuman"
+                  - "Fluorite"
+                  - "Lalafell"
+                  - "Roegadyn"
+                  - "AuRa"
+                  - "Viera"
+                  - "Hrothgar"
+                  - "Dragonoid"
+                  - "Starlogger"
+                  - "Barbaroses"
+                  - "NatureBeasts"
+                  - "SoulAlignedPlants"
+                  - "Undeads"
+                  - "MagicalEntities"
+                  - "MagitechMachines"
+                  - "MysticBeasts"
+                  - "Fae"
+                  - "BorneFromTheAbyssos"
+                  - "MereMortal"
+                  - "MereDemigod"
+                  - "Primals"
+                  - "NearestTruth"
+                  - "Other"
+            middle: #希少種判定
+              type:
+                enum:
+                  #共通
+                  - "Normal"
+                  - null
+                  #人間
+                  - "ValkyrieNormal" #ヴァルキリー通常種
+                  - "ValkyrieNoble" #ノーブルヴァルキリー
+                  #エルフ
+                  - "Snowed" #スノウエルフ
+                  - "Mist" #ミストエルフ
+                  - "Noble" #ノーブルエルフ
+                  #ドワーフ
+                  - "Fire"
+                  - "Dark" #ダークドワーフ
+                  #タビット
+                  - "Pica" #パイカ種
+                  - "Rivash" #リバス種
+                  #ルーンフォーク
+                  - "Common" #Normalまたはnullと共通
+                  - "Defender" #護衛型
+                  - "Attacker" #戦闘型
+                  - "MagitechAngel" #魔動天使
+                  #ナイトメア
+                  - "Human"
+                  - "Elves"
+                  - "Dwarf"
+                  - "Lilidracken"
+                  - "Sunbreaker"
+                  - "Shadow"
+                  #リカント
+                  - "LargerHerbivore" #大型草食種
+                  - "SmallerHerbivore" #小型草食種
+                  #リルドラケン
+                  - "Smallwing" #小翼種
+                  - "Hairy" #有毛種
+                  #グラスランナー
+                  - "Alisha" #アリーシャグラスランナー
+                  - "Climenos" #クリメノスグラスランナー
+                  #メリア
+                  - "Cannibalistic" #カーニバラス
+                  - "Fungy" #ファンギー
+                  #ティエンス
+                  - "TechEasy" #機解種
+                  - "DemonEasy" #魔解種
+                  #レプラカーン
+                  - "Vagrant" #放浪種
+                  - "Search" #探索種
+                  #アルヴ～FF14まではなし
+                  #ドラゴノイド
+                  - "Midir" #ミディール・ドラゴノイド
+                  - "Midgardsormr" #ミドガルズオルム・ドラゴノイド
+                  #星の記録者以降はなし
+            tribe: #部族
+              type:
+                enum:
+                  #共通(SW2.5希少種系、敵種族系など)
+                  - null
+                  #人間、ヴァルキリー、ハイマン共通
+                  - "Midlander" #ミッドランダー
+                  - "Highlander" #ハイランダー
+                  #ノーブルヴァルキリー
+                  - "Modern" #Currentと同じ、現代種
+                  - "Current" #Modernと同じ、現代種
+                  - "Ancient" #古代種
+                  #エルフ、ノーブルエルフ共通
+                  - "Forester" #フォレスター
+                  - "Shader" #シェーダー
+                  #--ここからFF14--
+                  #ララフェル
+                  - "Plainsfolk" #プレーンフォーク
+                  - "Dunesfolk" #デューンフォーク
+                  #ルガディン
+                  - "Lohengarde" #ローエンガルデ
+                  - "Seewolf" #ゼーヴォルフ
+                  #アウラ
+                  - "Raen" #アウラ・レン
+                  - "Xaela" #アウラ・ゼラ
+                  #ヴィエラ
+                  - "Rava" #ラヴァ・ヴィエラ
+                  - "Veena" #ヴィナ・ヴィエラ
+                  #ロスガル
+                  - "Helions" #ヘリオン
+                  - "TheLost" #ロスト
+        gender:
+          type:
+            enum:
+              - "Male"    #男性
+              - "Female"  #女性
+              - "Neutral" #中性
+              - "Asexual" #無性
+              - "Machine" #機械
