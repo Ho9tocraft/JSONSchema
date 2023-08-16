@@ -1,2 +1,8 @@
 $schema: "https://json-schema.org/draft/2020-12/schema#"
 title: "TRExPilots"
+type: "object"
+required: # 必須のプロパティを定義
+  - "units"
+properties:
+  units:
+    type: "array"
